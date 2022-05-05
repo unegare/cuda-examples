@@ -3,7 +3,7 @@
 #include <cuda.h>
 #include <gmp.h>
 #include "cgbn/cgbn.h"
-#include "./CGBN/samples/utility/gpu_support.h"
+#include "../CGBN/samples/utility/gpu_support.h"
 
 #define TPI 32
 #define BITS 1024
