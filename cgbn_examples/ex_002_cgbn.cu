@@ -39,6 +39,11 @@ __host__ __device__ cgbn_mem_t<to_bits> convert(const cgbn_mem_t<from_bits>& fro
   }
 }
 
+template<typename T, size_t N>
+__device__ constexpr size_t dev_std_size(const T(&arr)[N]) {
+  return N;
+}
+
 //typedef cgbn_mem_t<1024> amount_t;
 //typedef cgbn_mem_t<1024> cgbn_1024_t;
 
@@ -199,6 +204,7 @@ void cuda_wrapper() {
   CUDA_CHECK(cudaFree(gpuBammd));
   CUDA_CHECK(cudaFree(gpuReqSource));
   CUDA_CHECK(cudaFree(gpuReqTarget));
+  CUDA_CHECK(cgbn_error_report_free(report));
 }
 
 int main() {
